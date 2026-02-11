@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<nav>
+    <div class="logo"><img src="" alt="logo"></div>
+    <div class="word">Copa Do Mundo</div>
+
+    <div class="nav-links">
+        <button onclick="document.getElementById('home').scrollIntoView()">Home</button>
+        <button onclick="document.getElementById('cadastrosel').scrollIntoView()">Cadastro De Seleções</button>
+        <button onclick="document.getElementById('cadastrogp').scrollIntoView()">Cadastro De Grupos</button>
+        <button onclick="document.getElementById('cadastrojg').scrollIntoView()">Cadastro De Jogos</button>
+        <button onclick="document.getElementById('registro').scrollIntoView()">Registração de Resultados</button>
+    </div>
+</nav>
+
+<section id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <span class="tagline">World Cup</span>
+        <h1 class="hero-title">Bem-vindo à Copa do Mundo!</h1>
+        <p class="hero-phrase">Explore as seleções, grupos e jogos da maior competição de futebol do mundo.</p>
+        <h1>Antes de explorar esta jornada faça o cadastro na plataforma ou login
+            para acessar as funcionalidades completas.</h1>
+        <button class="cta-btn" onclick="document.getElementById('cadastrosel').scrollIntoView()">
+            Cadastro De Seleções
+        </button>
+</section>
+
+    <section id="cadastrosel">
+        <p class="section-label">CADASTRO DE SELEÇÕES</p>
+        <div class="form-container">
+            <form action="cadastro_selecoes.php" method="POST">
+                <input type="text" name="nome" placeholder="Nome da Seleção" required>
+                <input type="text" name="pais" placeholder="País de Origem" required>
+                <input type="text" name="tecnico" placeholder="Técnico Principal" required>
+                <button type="submit">Cadastrar Seleção</button>
+            </form>
+
+    </section>
+
+</body>
+</html>

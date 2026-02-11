@@ -87,6 +87,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     <h1>World Cup 2026</h1>
 
     <?php if ($error): ?>
+        <?php if (isset($_POST['login'])): ?>
+        <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            switchTab('login');
+        });
+        </script>
+        <?php else: ?>
+        <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            switchTab('register');
+        });
+        </script>
+        <?php endif; ?>
         <p class="error"><?php echo htmlspecialchars($error); ?></p>
     <?php endif; ?>
     <?php if ($success): ?>
@@ -122,4 +135,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
         </form>
     </div>
 
-        

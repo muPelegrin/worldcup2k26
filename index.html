@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<nav class="navegacao">
+    <div class="logo"><img src="img/copadomundo.png" alt=""></div>
+    <div class="arrumartudo">
+    <div class="word">Copa Do Mundo</div>
+
+    <div class="nav-links">
+    <button class="scroll-btn" data-target="#home">Home</button>
+    <button class="scroll-btn" data-target="#cadastrosel">Cadastro De Seleções</button>
+    <button class="scroll-btn" data-target="#cadastrogp">Cadastro De Grupos</button>
+    <button class="scroll-btn" data-target="#cadastrojg">Cadastro De Jogos</button>
+    <button class="scroll-btn" data-target="#registro">Registração de Resultados</button>
+    </div>
+</div>
+</nav>
+
+<section id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="hero-title">Bem-vindo à Copa do Mundo!</h1>
+        <p class="hero-phrase">Explore as seleções, grupos e jogos da maior competição de futebol do mundo.</p>
+        <h1>Antes de explorar esta jornada faça o cadastro na plataforma ou login
+            para acessar as funcionalidades completas.</h1>
+            <br>
+        <button><a href="cadastro.php">Cadastre Aqui</a></button>
+        
+</section>
+
+    <section id="cadastrosel">
+        <p class="section-label">CADASTRO DE SELEÇÕES</p>
+        <div class="form-container">
+            <form action="cadastro_selecoes.php" method="POST">
+                <label style="color: #fff; margin-top: 5px; display:block;">Cadastre a Seleção:</label>
+                <input type="text" name="nome" placeholder="Nome da Seleção" required>
+                <input type="text" name="pais" placeholder="País de Origem" required>
+                <input type="text" name="tecnico" placeholder="Técnico Principal" required>
+                <button type="submit">Cadastrar Seleção</button>
+            </form>
+
+    </section>
+
+</section> 
+
+    <section id="cadastrogp">
+        <p class="section-label">CADASTRO DE GRUPOS</p>
+        <div class="form-container">
+            <form action="cadastro_grupos.php" method="POST">
+                <label for="grupo-nome" style="color: #fff;">Nome do Grupo</label>
+                <input type="text" id="grupo-nome" name="nome_grupo" placeholder="Ex: Grupo A" required>
+                
+                <button type="submit">Criar Grupo</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="cadastrojg">
+        <p class="section-label">CADASTRO DE JOGOS</p>
+        <div class="form-container">
+            <form action="cadastro_jogos.php" method="POST">
+
+                <label style="color: #fff; margin-top: 5px; display:block;">Seleções:</label>
+                <input type="text" name="selecao_casa" placeholder="Seleção Casa (Mandante)" required>
+                                
+                <input type="text" name="selecao_visitante" placeholder="Seleção Visitante" required>
+                
+                <label style="color: #fff; margin-top: 5px; display:block;">Data e Hora:</label>
+                <input type="datetime-local" name="data_jogo" required>
+
+                <label style="color: #fff; margin-top: 5px; display:block;">Estádio:</label>
+                <input type="text" name="estadio" placeholder="Estádio / Local do Jogo" required>
+                
+                <label style="color: #fff; margin-top: 5px; display:block;">Grupo:</label>
+                <input type="text" name="grupo_ref" placeholder="Referente ao Grupo (ex: A)" required>
+
+                <button type="submit">Agendar Partida</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="registro">
+        <p class="section-label">REGISTRO DE RESULTADOS</p>
+        <div class="form-container">
+            <form action="registro_resultados.php" method="POST">
+                <p style="color: white; margin-bottom: 10px;">Selecione a partida para atualizar o placar:</p>
+                
+                <input type="text" name="id_jogo" placeholder="ID da Partida ou Times" required>
+                
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <div style="flex: 1;">
+                        <label style="color: #fff;">Gols Casa</label>
+                        <input type="number" name="gols_casa" min="0" placeholder="0" required>
+                    </div>
+                    
+                    <div style="flex: 1;">
+                        <label style="color: #fff;">Gols Visitante</label>
+                        <input type="number" name="gols_visitante" min="0" placeholder="0" required>
+                    </div>
+                </div>
+
+                <button type="submit" style="margin-top: 20px;">Atualizar Placar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 World Cup Manager. Todos os direitos reservados.</p>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>

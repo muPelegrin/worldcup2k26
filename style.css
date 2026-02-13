@@ -186,13 +186,12 @@ section {
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    max-width: 800px;
+    gap: 15px;
     align-items: center;
 }
 
 input {
-    padding: 15px;
+    padding: 10px;
     border: 2px solid #ddd;
     background: #f9f9f9;
     font-family: 'Kanit', sans-serif;
@@ -264,13 +263,33 @@ footer {
     max-width: 230px;
 }
 
-
-.cadastroelogin{
-    display: flex;
-    justify-content: center;
+.cadastroelogin h2{
+    text-align: center;
+    padding: 15px;
+    padding-bottom: 20px;
 }
 
 .arrumartudo{
     text-align: center;
     margin-left: 175px;   
+}
+
+.login{
+    justify-content: center;
+}
+
+.first-form{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    min-width: 400px;
+    min-height: 300px;
+    padding-top: 25px;
+    border-radius: 10px;
+}
+
+.second-form{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    min-width: 400px;
+    min-height: 390px;
+    padding-top: 25px;
+    border-radius: 10px;
 }

@@ -7,17 +7,19 @@
 </head>
 <body>
     
-<nav>
-    <div class="logo"><img src="" alt="logo"></div>
+<nav class="navegacao">
+    <div class="logo"><img src="img/copadomundo.png" alt=""></div>
+    <div class="arrumartudo">
     <div class="word">Copa Do Mundo</div>
 
     <div class="nav-links">
-        <button onclick="document.getElementById('home').scrollIntoView()">Home</button>
-        <button onclick="document.getElementById('cadastrosel').scrollIntoView()">Cadastro De Seleções</button>
-        <button onclick="document.getElementById('cadastrogp').scrollIntoView()">Cadastro De Grupos</button>
-        <button onclick="document.getElementById('cadastrojg').scrollIntoView()">Cadastro De Jogos</button>
-        <button onclick="document.getElementById('registro').scrollIntoView()">Registração de Resultados</button>
+    <button class="scroll-btn" data-target="#home">Home</button>
+    <button class="scroll-btn" data-target="#cadastrosel">Cadastro De Seleções</button>
+    <button class="scroll-btn" data-target="#cadastrogp">Cadastro De Grupos</button>
+    <button class="scroll-btn" data-target="#cadastrojg">Cadastro De Jogos</button>
+    <button class="scroll-btn" data-target="#registro">Registração de Resultados</button>
     </div>
+</div>
 </nav>
 
 <section id="home">
@@ -25,11 +27,11 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-        <span class="tagline">World Cup</span>
         <h1 class="hero-title">Bem-vindo à Copa do Mundo!</h1>
         <p class="hero-phrase">Explore as seleções, grupos e jogos da maior competição de futebol do mundo.</p>
         <h1>Antes de explorar esta jornada faça o cadastro na plataforma ou login
             para acessar as funcionalidades completas.</h1>
+            <br>
         <button><a href="cadastro.php">Cadastre Aqui</a></button>
         
 </section>
@@ -38,6 +40,7 @@
         <p class="section-label">CADASTRO DE SELEÇÕES</p>
         <div class="form-container">
             <form action="cadastro_selecoes.php" method="POST">
+                <label style="color: #fff; margin-top: 5px; display:block;">Cadastre a Seleção:</label>
                 <input type="text" name="nome" placeholder="Nome da Seleção" required>
                 <input type="text" name="pais" placeholder="País de Origem" required>
                 <input type="text" name="tecnico" placeholder="Técnico Principal" required>
@@ -64,17 +67,19 @@
         <p class="section-label">CADASTRO DE JOGOS</p>
         <div class="form-container">
             <form action="cadastro_jogos.php" method="POST">
+
+                <label style="color: #fff; margin-top: 5px; display:block;">Seleções:</label>
                 <input type="text" name="selecao_casa" placeholder="Seleção Casa (Mandante)" required>
-                
-                <p style="text-align: center; color: white; margin: 5px 0;">VS</p>
-                
+                                
                 <input type="text" name="selecao_visitante" placeholder="Seleção Visitante" required>
                 
-                <label style="color: #fff; margin-top: 10px; display:block;">Data e Hora:</label>
+                <label style="color: #fff; margin-top: 5px; display:block;">Data e Hora:</label>
                 <input type="datetime-local" name="data_jogo" required>
-                
+
+                <label style="color: #fff; margin-top: 5px; display:block;">Estádio:</label>
                 <input type="text" name="estadio" placeholder="Estádio / Local do Jogo" required>
                 
+                <label style="color: #fff; margin-top: 5px; display:block;">Grupo:</label>
                 <input type="text" name="grupo_ref" placeholder="Referente ao Grupo (ex: A)" required>
 
                 <button type="submit">Agendar Partida</button>
@@ -111,5 +116,6 @@
         <p>&copy; 2026 World Cup Manager. Todos os direitos reservados.</p>
     </footer>
 
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,10 @@
+body { font-family: Arial, sans-serif; margin: 0; background: #f7f7f7; }
+header { background: #0b2a5a; color: #fff; padding: 16px; }
+nav a { color: #fff; margin-right: 12px; text-decoration: none; }
+main { padding: 20px; }
+section { background: #fff; border-radius: 8px; padding: 16px; margin-bottom: 20px; }
+form { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+form.inline { display: inline-flex; }
+input, select, button { padding: 6px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }

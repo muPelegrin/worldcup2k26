@@ -1,13 +1,24 @@
 <?php
+class Database
+{
+    private $host = 'localhost';
+    private $db_name   = 'worldcup';
+    private $username   = 'root';
+    private $password   = '';
+    private $pdo;
+    private $conn;
 
-$dsn = "mysql:host=localhost;dbname=worldcup;charset=utf8";
-$usuario = "root";
-$senha = "";
+    public function connect()
+    {
+        $this->conn = null;
 
-try {
-    $pdo = new PDO($dsn, $usuario, $senha);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Erro: " . $e->getMessage();
+        try {
+            $this->conn = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->db_name, $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo 'Connection Error: ' . $e->getMessage();
+        }
+
+        return $this->conn;
+    }
 }
-?>

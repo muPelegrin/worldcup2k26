@@ -1,5 +1,7 @@
 <?php
 
+require_once "C:/Turma2/xampp/htdocs/worldcup2k26/app/DB/DataBase.php";
+
 class UsuarioModel {
     private $pdo;
 

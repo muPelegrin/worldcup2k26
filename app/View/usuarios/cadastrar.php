@@ -9,20 +9,6 @@
 
 <body>
     <section>
-            <h2>Login</h2>
-                <form class="first-form" action="processar.php" method="POST">
-                    <input type="hidden" name="acao" value="login">
-
-                    <label>Usuário:</label>
-                    <input type="text" name="usuario" required>
-
-                    <label>Senha:</label>
-                    <input type="password" name="senha" required>
-
-                    <button type="submit">Entrar</button>
-                </form>
-            </section>
-        </div>
 
         <div class="cadastro">
             <section>
@@ -30,14 +16,17 @@
             <form class="second-form" action="processar.php" method="POST" onsubmit="return validarSenha()">
                 <input type="hidden" name="acao" value="cadastro">
 
-                <label>Usuário:</label>
-                <input type="text" name="usuario" required>
+                <label>Nome:</label>
+                <input type="text" name="nome" required>
 
-                <label>Senha:</label>
-                <input type="password" id="senha_cad" name="senha" required>
+                <label>Idade:</label>
+                <input type="number" id="idade" name="idade" required>
 
-                <label>Confirmar Senha:</label>
-                <input type="password" id="confirma_cad" name="confirmar_senha" required>
+                <label>Seleção:</label>
+                <input type="text" id="selecao" name="selecao" required>
+
+                <label>Cargo:</label>
+                <input type="text" id="cargo" name="cargo" required>
 
                 <button type="submit">Cadastrar</button>
             </form>

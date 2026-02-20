@@ -1,12 +1,18 @@
 <?php
 require_once "C:/Turma2/xampp/htdocs/worldcup2k26/app/DB/DataBase.php";
+require_once "C:/Turma2/xampp/htdocs/worldcup2k26/app/Controller/ClassificacaoController.php";
 require_once "C:/Turma2/xampp/htdocs/worldcup2k26/app/Controller/GrupoController.php";
-require_once "C:/Turma2/xampp/htdocs/worldcup2k26/app/Controller/SelecaoController.php";
 require_once "C:/Turma2/xampp/htdocs/worldcup2k26/app/Controller/JogoController.php";
-$grupoController = new GrupoController($pdo);
-$selecaoController = new SelecaoController($pdo);
-$jogoController = new JogoController($pdo);
+require_once "C:/Turma2/xampp/htdocs/worldcup2k26/app/Controller/ResultadoController.php";
+require_once "C:/Turma2/xampp/htdocs/worldcup2k26/app/Controller/SelecaoController.php";
+require_once  "C:/Turma2/xampp/htdocs/worldcup2k26/app/Controller/UsuarioController.php";
 
+$classificacaoController = new ClassificacaoController($pdo);
+$grupoController = new GrupoController($pdo);
+$jogoController = new JogoController($pdo);
+$resultadoController = new ResultadoController($pdo);
+$selecaoController = new SelecaoController($pdo);
+$usuarioController = new UsuarioController($pdo);
 
 ?>
 
@@ -50,6 +56,8 @@ $jogoController = new JogoController($pdo);
             <button><a href="cadastro.php">Cadastre Aqui</a></button>
 
     </section>
+
+    <?php $classificacao = $classificacaoController->cadastrarclassificacao(); ?>   ***
 
     <?php $selecao = $selecaoController->cadastrarselecao(); ?>
 

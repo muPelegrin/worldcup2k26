@@ -55,30 +55,7 @@ $jogoController = new JogoController($pdo);
 
     <?php $jogo = $jogoController->cadastrarjogo(); ?>
 
-    <section id="registro">
-        <p class="section-label">REGISTRO DE RESULTADOS</p>
-        <div class="form-container">
-            <form action="registro_resultados.php" method="POST">
-                <p style="color: white; margin-bottom: 10px;">Selecione a partida para atualizar o placar:</p>
-
-                <input type="text" name="id_jogo" placeholder="ID da Partida ou Times" required>
-
-                <div style="display: flex; gap: 10px; margin-top: 10px;">
-                    <div style="flex: 1;">
-                        <label style="color: #fff;">Gols Casa</label>
-                        <input type="number" name="gols_casa" min="0" placeholder="0" required>
-                    </div>
-
-                    <div style="flex: 1;">
-                        <label style="color: #fff;">Gols Visitante</label>
-                        <input type="number" name="gols_visitante" min="0" placeholder="0" required>
-                    </div>
-                </div>
-
-                <button type="submit" style="margin-top: 20px;">Atualizar Placar</button>
-            </form>
-        </div>
-    </section>
+    <?php $resultado = $resultadoController->cadastrarresultado(); ?>
 
     <section id="classificacao">
         <p class="section-label">CLASSIFICAÇÃO POR GRUPOS</p>

@@ -36,6 +36,21 @@
                 <label>Usuário:</label>
                 <input type="text" name="usuario" required>
 
+                <label>Idade:</label>
+                <input type="number" name="idade" min="1" required>
+
+                <label>Seleção Representante:</label>
+                <input type="text" name="selecao" placeholder="Ex: Brasil" required>
+
+                <label>Cargo:</label>
+                <select name="cargo" required>
+                    <option value="" disabled selected>Selecione um cargo...</option>
+                    <option value="jogador">Jogador</option>
+                    <option value="tecnico">Técnico</option>
+                    <option value="arbitro">Árbitro</option>
+                    <option value="dirigente">Dirigente</option>
+                    <option value="outro">Outro</option>
+                </select>
                 <label>Senha:</label>
                 <input type="password" id="senha_cad" name="senha" required>
 

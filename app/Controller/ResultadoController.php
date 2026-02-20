@@ -3,8 +3,7 @@
 $pdo = require_once "C:/Turma2/xampp/htdocs/worldcup2k26/app/DB/DataBase.php";
 require_once "C:/Turma2/xampp/htdocs/worldcup2k26/app/Model/ResultadoModel.php";
 
-class ResultadoController
-{
+class ResultadoController {
     private $ResultadoModel;
     public function __construct($pdo)
     {

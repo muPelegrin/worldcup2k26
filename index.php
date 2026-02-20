@@ -20,7 +20,7 @@ $jogoController = new JogoController($pdo);
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -56,7 +56,7 @@ $jogoController = new JogoController($pdo);
             <p class="hero-phrase">Explore as seleções, grupos e jogos da maior competição de futebol do mundo.</p>
             <h1>Antes de explorar esta jornada faça o cadastro na plataforma ou login para acessar as funcionalidades completas.</h1>
             <br>
-            <button><a href="cadastro.php" style="text-decoration: none; color: inherit;">Cadastre Aqui Ou Faça login</a></button>
+            <button><a href="cadastroLogin.php" style="text-decoration: none; color: inherit;">Cadastre Aqui Ou Faça login</a></button>
         </div>
     </section>
 

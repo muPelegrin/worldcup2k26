@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id_usuario'])) {
+// 1. CORREÇÃO: Verificando a variável 'usuario_id' igual criamos no Controller
+if (!isset($_SESSION['usuario_id'])) {
     header("Location: cadastro.php");
     exit;
 }
@@ -16,7 +17,8 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = ?");
-    $stmt->execute([$_SESSION['id_usuario']]);
+    // 2. CORREÇÃO: Buscando pelo 'usuario_id' da sessão
+    $stmt->execute([$_SESSION['usuario_id']]);
     $dados_usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
 } catch (PDOException $e) {
@@ -79,7 +81,7 @@ try {
 <body>
 
     <div class="painel-container">
-        <h1>Bem-vindo(a), <?php echo htmlspecialchars($dados_usuario['usuario']); ?>!</h1>
+        <h1>Bem-vindo(a), <?php echo htmlspecialchars($dados_usuario['nome']); ?>!</h1>
         
         <p>Aqui estão os detalhes do seu cadastro:</p>
         

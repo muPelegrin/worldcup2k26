@@ -1,3 +1,16 @@
+<?php
+
+$host = 'localhost';
+$dbname = 'worldcup2k26'; 
+$user = 'root'; 
+$pass = ''; 
+$pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+require_once "C:/Turma2/xampp/htdocs/worldcup2k26/app/Controller/UsuarioController.php"; 
+$usuarioController = new UsuarioController($pdo);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,7 +22,6 @@
 
 <body>
     
- <?php $usuario = $usuarioController->cadastrarUsuario(); ?>
     <div class="container">
         <div class="login">
             <section>
@@ -52,6 +64,7 @@
                     <option value="dirigente">Dirigente</option>
                     <option value="outro">Outro</option>
                 </select>
+                
                 <label>Senha:</label>
                 <input type="password" id="senha_cad" name="senha" required>
 
@@ -63,6 +76,7 @@
             </section>
         </div>
     </div>
+    
     <script>
         function validarSenha() {
             var senha = document.getElementById("senha_cad").value;

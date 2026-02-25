@@ -2,7 +2,7 @@
 class Database
 {
     private $host = 'localhost';
-    private $db_name   = 'worldcup';
+    private $db_name   = 'worldcup2k26';
     private $username   = 'root';
     private $password   = '';
     private $pdo;

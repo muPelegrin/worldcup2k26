@@ -152,6 +152,16 @@ section {
     align-items: center;
 }
 
+.mensagem { 
+    padding: 20px;
+    font-size: 1.9rem;
+    color: var(--fifa-black);
+    background: black;
+    color: white;
+    box-shadow: #6A38B3 0px 3px 8px;
+    border: 4px solid var(--brand-purple);
+}
+
 .section-label {
     font-size: 2.5rem;
     font-weight: 900;

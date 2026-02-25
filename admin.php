@@ -4,13 +4,13 @@ session_start();
 
 if (!isset($_SESSION['id_usuario']) || $_SESSION['perfil'] !== 'admin') {
     
-    header("Location: cadastro.php");
+    header("Location: index.php");
     exit;
 }
 
 
 $host = 'localhost';
-$dbname = 'nome_do_seu_banco'; 
+$dbname = 'worldcup2k26'; 
 $user = 'root'; 
 $pass = ''; 
 

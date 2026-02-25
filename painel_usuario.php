@@ -91,7 +91,7 @@ try {
             <p><strong>Cargo:</strong> <span style="text-transform: capitalize;"><?php echo htmlspecialchars($dados_usuario['cargo']); ?></span></p>
         </div>
 
-        <a href="index.php" class="btn-logout">Voltar ao Menu</a>
+        <a href="cadastro.php" class="btn-logout">Ir Para o Menu Principal</a>
         <a href="logout.php" class="btn-logout">Sair da Conta</a>
     </div>
 

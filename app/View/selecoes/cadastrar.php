@@ -37,5 +37,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form']) && $_POST['fo
     $grupo = $_POST['grupo_selecao'];
     $continente = $_POST['continente_selecao'];
     $selecaoController->cadastrar($nome, $grupo, $continente);
-    header('Location: ../../index.php');
+    header('Location: index.php');
 }

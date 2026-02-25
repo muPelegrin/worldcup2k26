@@ -38,5 +38,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form']) && $_POST['fo
     $gols_marcados = $_POST['gols_marcados'];
 
     $classificacaoController->cadastrar($pontos, $saldo_gols, $gols_marcados);
-    header('Location: ../../index.php');
+    header('Location: index.php');
 }

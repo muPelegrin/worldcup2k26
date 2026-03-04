@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,600;0,900;1,900&display=swap');
+
+:root {
+    --fifa-black: #000000;
+    --fifa-white: #FFFFFF;
+    --brand-purple: #6A38B3; 
+    --brand-green: #00FF87; 
+    --brand-blue: #3E8EDE;
+    --brand-pink: #F4406B;
+}
+
+.body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #F4F4F4;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(106, 56, 179, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(0, 255, 135, 0.1) 0%, transparent 20%);
+    color: var(--fifa-black);
+    margin: 150px;
+}
+
+.body h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--brand-purple), var(--brand-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.body h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--fifa-black);
+    text-transform: uppercase;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border-left: 10px solid var(--brand-pink);
+    padding-left: 15px;
+    line-height: 1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border-top: 5px solid var(--fifa-black);
+    position: relative;
+    margin-bottom: 40px;
+}
+
+table::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; right: -1px;
+    width: 30px; height: 30px;
+    background: var(--brand-green);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    z-index: 10;
+}
+
+th {
+    background: var(--fifa-black);
+    color: var(--brand-green);
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 15px;
+    text-align: left;
+    letter-spacing: 1px;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 2px solid #eee;
+    font-weight: 600;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 255, 135, 0.05);
+}
+
+tr:hover {
+    background-color: rgba(62, 142, 222, 0.1); /* Leve tom do brand-blue */
+}
+
+.empty-msg {
+    font-weight: 900;
+    color: var(--brand-pink);
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+/* Botões de Ação com o estilo esportivo angular (Adaptado do button[type="submit"]) */
+.btn {
+    display: inline-block;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+    cursor: pointer;
+    clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+    transition: transform 0.2s;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Botão de Editar usando Verde e Azul */
+.btn-edit {
+    background: linear-gradient(45deg, var(--brand-blue), var(--brand-green));
+    color: var(--fifa-black); /* Contraste escuro para leitura no verde */
+}
+
+/* Botão de Excluir usando Rosa e Roxo (Cores de alerta da paleta) */
+.btn-delete {
+    background: linear-gradient(45deg, var(--brand-pink), var(--brand-purple));
+    color: white;
+}

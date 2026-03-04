@@ -79,7 +79,74 @@ $jogoController = new JogoController($pdo);
 
     <?php $resultado = $resultadoController->cadastrarresultado(); ?>
 
-    
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin - WorldCup</title>
+    <link rel="stylesheet" href="styletable.css">
+</head>
+<body>
+    <div class="body">
+    <h1>Painel de Controle: Banco de Dados `worldcup`</h1>
+
+    <?php
+    $host = '127.0.0.1';
+    $dbname = 'worldcup';
+    $usuario = 'root'; 
+    $senha = ''; 
+
+    try {
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $usuario, $senha);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $tabelas = ['classificacao', 'grupo', 'jogo', 'resultado', 'selecao', 'usuario']; 
+
+        foreach ($tabelas as $tabela) {
+            echo "<h2>Tabela: " . htmlspecialchars($tabela) . "</h2>";
+
+            $stmt = $pdo->query("SELECT * FROM $tabela");
+            $linhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if (count($linhas) > 0) {
+                echo "<table>";
+                
+                echo "<tr>";
+                foreach (array_keys($linhas[0]) as $coluna) {
+                    echo "<th>" . htmlspecialchars($coluna) . "</th>";
+                }
+                echo "<th>Ações</th>";
+                echo "</tr>";
+
+                foreach ($linhas as $linha) {
+                    echo "<tr>";
+                    foreach ($linha as $dado) {
+                        echo "<td>" . htmlspecialchars((string)$dado) . "</td>";
+                    }
+                    
+                    $id = htmlspecialchars($linha['id']);
+                    echo "<td>";
+                    echo "<a href='editar.php?tabela=$tabela&id=$id' class='btn btn-edit'>Editar</a>";
+                    echo "<a href='excluir.php?tabela=$tabela&id=$id' class='btn btn-delete' onclick='return confirm(\"Tem certeza que deseja excluir o registro #$id da tabela $tabela?\");'>Excluir</a>";
+                    echo "</td>";
+                    
+                    echo "</tr>";
+                }
+                echo "</table>";
+            } else {
+                echo "<p class='empty-msg'>Nenhum dado encontrado nesta tabela.</p>";
+            }
+        }
+
+    } catch (PDOException $e) {
+        echo "<p style='color: red;'><strong>Erro na conexão com o banco de dados:</strong> " . $e->getMessage() . "</p>";
+    }
+    ?>
+    </div>
+</body>
+</html>
 
     <footer>
         <p>&copy; 2026 World Cup Manager. Todos os direitos reservados.</p>

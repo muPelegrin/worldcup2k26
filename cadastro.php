@@ -79,41 +79,7 @@ $jogoController = new JogoController($pdo);
 
     <?php $resultado = $resultadoController->cadastrarresultado(); ?>
 
-    <section id="classificacao">
-        <p class="section-label">CLASSIFICAÇÃO POR GRUPOS</p>
-        
-        <div class="classificacao-container" style="padding: 20px; background-color: #f9f9f9; border-radius: 8px; max-width: 800px; margin: 0 auto;">
-            
-            <?php 
-              
-            ?>
-
-            <div class="grupo-tabela" style="margin-bottom: 30px;">
-                <h3 style="text-align: center; color: #333;">Grupo A</h3>
-                <table style="width: 100%; border-collapse: collapse; text-align: center;">
-                    <thead>
-                        <tr style="background-color: #007bff; color: white;">
-                            <th style="padding: 10px; border: 1px solid #ddd;">Seleção</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;" title="Pontos">P</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;" title="Jogos">J</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;" title="Vitórias">V</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;" title="Empates">E</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;" title="Derrotas">D</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;" title="Gols Marcados (Pró)">GP</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;" title="Gols Sofridos (Contra)">GC</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;" title="Saldo de Gols">SG</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;"><strong>Brasil</strong></td>
-                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>9</strong></td> <td style="padding: 10px; border: 1px solid #ddd;">3</td> <td style="padding: 10px; border: 1px solid #ddd;">3</td> <td style="padding: 10px; border: 1px solid #ddd;">0</td> <td style="padding: 10px; border: 1px solid #ddd;">0</td> <td style="padding: 10px; border: 1px solid #ddd;">7</td> <td style="padding: 10px; border: 1px solid #ddd;">1</td> <td style="padding: 10px; border: 1px solid #ddd;">6</td> </tr>
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-    </section>
+    
 
     <footer>
         <p>&copy; 2026 World Cup Manager. Todos os direitos reservados.</p>

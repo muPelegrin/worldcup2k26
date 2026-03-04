@@ -11,7 +11,7 @@ class UsuarioModel
 
     public function buscarTodos()
     {
-        $sql = "SELECT * FROM usuarios";
+        $sql = "SELECT * FROM usuario";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -48,7 +48,7 @@ class UsuarioModel
 
     public function buscarUsuario($id)
     {
-        $sql = "SELECT * FROM usuarios WHERE id = :id";
+        $sql = "SELECT * FROM usuario WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
@@ -57,7 +57,7 @@ class UsuarioModel
 
     public function deletar($id)
     {
-        $sql = "DELETE FROM usuarios WHERE id = :id";
+        $sql = "DELETE FROM usuario WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();

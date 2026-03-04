@@ -8,7 +8,7 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 $host = 'localhost';
-$dbname = 'worldcup2k26'; 
+$dbname = 'worldcup'; 
 $user = 'root'; 
 $pass = ''; 
 
@@ -16,7 +16,7 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = ?");
+    $stmt = $pdo->prepare("SELECT * FROM usuario WHERE id = ?");
     // 2. CORREÇÃO: Buscando pelo 'usuario_id' da sessão
     $stmt->execute([$_SESSION['usuario_id']]);
     $dados_usuario = $stmt->fetch(PDO::FETCH_ASSOC);

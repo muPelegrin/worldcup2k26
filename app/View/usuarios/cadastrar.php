@@ -48,6 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form']) && $_POST['fo
     $selecao = $_POST['selecao'];
     $cargo = $_POST['cargo'];
 
-    $usuarioController->cadastrar($nome, $idade, $selecao, $cargo);
+    $usuarioController->cadastrar($nome, $idade, $selecao, $cargo, $id);
     header('Location: ../../index.php');
 }

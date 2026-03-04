@@ -10,7 +10,7 @@ if (!isset($_SESSION['id_usuario']) || $_SESSION['perfil'] !== 'admin') {
 
 
 $host = 'localhost';
-$dbname = 'worldcup2k26'; 
+$dbname = 'worldcup'; 
 $user = 'root'; 
 $pass = ''; 
 

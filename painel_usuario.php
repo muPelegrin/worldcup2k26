@@ -8,7 +8,7 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 $host = 'localhost';
-$dbname = 'worldcup2k26'; 
+$dbname = 'worldcup'; 
 $user = 'root'; 
 $pass = ''; 
 

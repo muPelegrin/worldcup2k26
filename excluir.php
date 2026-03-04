@@ -3,7 +3,7 @@ session_start();
 
 
 if (!isset($_SESSION['id_usuario']) || $_SESSION['perfil'] !== 'admin') {
-    header("Location: cadastro.php");
+    header("Location: index.php");
     exit;
 }
 

@@ -1,7 +1,7 @@
 <?php
 
 $host = 'localhost';
-$dbname = 'worldcup2k26'; 
+$dbname = 'worldcup'; 
 $user = 'root'; 
 $pass = ''; 
 $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);

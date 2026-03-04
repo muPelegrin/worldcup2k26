@@ -19,7 +19,7 @@ class UsuarioModel
 
     public function cadastrar($nome, $idade, $selecao, $cargo, $senha)
     {
-        $sql = "INSERT INTO usuarios (nome, idade, selecao, cargo, senha) VALUES (:nome, :idade, :selecao, :cargo, :senha)";
+        $sql = "INSERT INTO usuario (nome, idade, selecao, cargo, senha) VALUES (:nome, :idade, :selecao, :cargo, :senha)";
         $stmt = $this->pdo->prepare($sql);
         
         $stmt->bindParam(':nome', $nome);
@@ -31,15 +31,16 @@ class UsuarioModel
         $stmt->execute();
     }
 
-    public function editar($nome, $idade, $selecao, $cargo, $id)
+    public function editar($nome, $idade, $selecao, $cargo, $senha, $id)
     {
-        $sql = "UPDATE usuarios SET nome = :nome, idade = :idade, selecao = :selecao, cargo = :cargo WHERE id = :id";
+        $sql = "UPDATE usuario SET nome = :nome, idade = :idade, selecao = :selecao, cargo = :cargo, senha = :senha WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':idade', $idade);
         $stmt->bindParam(':selecao', $selecao);
         $stmt->bindParam(':cargo', $cargo);
+        $stmt->bindParam(':senha', $senha);
         $stmt->bindParam(':id', $id);
         
         $stmt->execute();
@@ -64,7 +65,7 @@ class UsuarioModel
 
     public function buscarPorNome($nome)
     {
-        $sql = "SELECT * FROM usuarios WHERE nome = :nome LIMIT 1";
+        $sql = "SELECT * FROM usuario WHERE nome = :nome LIMIT 1";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':nome', $nome);
         $stmt->execute();

@@ -25,9 +25,9 @@ class UsuarioController
         $this->UsuarioModel->cadastrar($nome, $idade, $selecao, $cargo, $senhaCriptografada);
     }
 
-    public function editar($nome, $idade, $selecao, $cargo, $id)
+    public function editar($nome, $idade, $selecao, $cargo, $senha, $id)
     {
-        $this->UsuarioModel->editar($nome, $idade, $selecao, $cargo, $id);
+        $this->UsuarioModel->editar($nome, $idade, $selecao, $cargo, $senha, $id);
     }
 
     public function buscarusuario($id)

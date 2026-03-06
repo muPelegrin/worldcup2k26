@@ -1,20 +1,13 @@
 <?php
 session_start();
 
-
-if (!isset($_SESSION['id_usuario']) || $_SESSION['perfil'] !== 'admin') {
-    header("Location: index.php");
-    exit;
-}
-
-
 $host = 'localhost';
-$dbname = 'worldcup';
-$user = 'root'; 
+$dbname = 'worldcup';  // ensure same database used throughout the app
+$user = 'root';
 $pass = ''; 
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Erro de ligação: " . $e->getMessage());
@@ -23,17 +16,19 @@ try {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
-    $usuario = $_POST['usuario'];
+    $usuario = $_POST['nome'];
     $idade = $_POST['idade'];
     $selecao = $_POST['selecao'];
     $cargo = $_POST['cargo'];
-    $perfil = $_POST['perfil'];
+    $senha = $_POST['senha'];
 
-    $sql = "UPDATE usuarios SET usuario = ?, idade = ?, selecao = ?, cargo = ?, perfil = ? WHERE id = ?";
+    $sql = "UPDATE usuario SET nome = ?, idade = ?, selecao = ?, cargo = ?, senha = ? WHERE id = ?";
     $stmt = $pdo->prepare($sql);
+
+    $senha = password_hash($senha, PASSWORD_DEFAULT);
     
     try {
-        $stmt->execute([$usuario, $idade, $selecao, $cargo, $perfil, $id]);
+        $stmt->execute([$usuario, $idade, $selecao, $cargo, $senha, $id]);
         echo "<script>alert('Dados atualizados com sucesso!'); window.location.href='admin.php';</script>";
         exit;
     } catch (PDOException $e) {
@@ -42,19 +37,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
+// determine which table we are editing (default to usuarios)
+$table = 'usuario';
+if (isset($_GET['tabela']) && preg_match('/^[a-z0-9_]+$/i', $_GET['tabela'])) {
+    // whitelist allowed tables to prevent SQL injection
+    $allowed = ['usuarios','classificacao','grupo','jogo','resultado','selecao'];
+    if (in_array($_GET['tabela'], $allowed)) {
+        $table = $_GET['tabela'];
+    }
+}
+
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = $_GET['id'];
 
-    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = ?");
+    // note: this script only has a form for users; editing other tables
+    // would require a different form or additional handling.
+    $stmt = $pdo->prepare("SELECT * FROM $table WHERE id = ?");
     $stmt->execute([$id]);
     $u = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$u) {
-        echo "<script>alert('Utilizador não encontrado!'); window.location.href='admin.php';</script>";
+        echo "<script>alert('Registro não encontrado!'); window.location.href='admin.php';</script>";
         exit;
     }
 } else {
-    header("Location: admin.php");
+    header("Location: cadastro.php");
     exit;
 }
 ?>
@@ -83,7 +90,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <input type="hidden" name="id" value="<?php echo $u['id']; ?>">
 
             <label>Nome de Utilizador:</label>
-            <input type="text" name="usuario" value="<?php echo htmlspecialchars($u['usuario']); ?>" required>
+            <input type="text" name="nome" value="<?php echo htmlspecialchars($u['nome']); ?>" required>
 
             <label>Idade:</label>
             <input type="number" name="idade" min="1" value="<?php echo htmlspecialchars($u['idade']); ?>" required>
@@ -100,11 +107,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 <option value="outro" <?php echo ($u['cargo'] == 'outro') ? 'selected' : ''; ?>>Outro</option>
             </select>
 
-            <label>Perfil no Sistema:</label>
-            <select name="perfil" required>
-                <option value="comum" <?php echo ($u['perfil'] == 'comum') ? 'selected' : ''; ?>>Utilizador Comum</option>
-                <option value="admin" <?php echo ($u['perfil'] == 'admin') ? 'selected' : ''; ?>>Administrador</option>
-            </select>
+            <label>Senha:</label>
+               <input type="password" name="senha" value="<?php echo htmlspecialchars($u['senha']); ?>" required>
 
             <button type="submit" class="btn-salvar">Atualizar Dados</button>
         </form>

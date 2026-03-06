@@ -57,10 +57,9 @@ class UsuarioModel
 
     public function deletar($id)
     {
-        $sql = "DELETE FROM usuario WHERE id = :id";
+        $sql = "DELETE FROM usuario WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
+        $stmt->execute([$id]);
     }
 
     public function buscarPorNome($nome)

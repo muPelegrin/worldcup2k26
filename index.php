@@ -17,13 +17,13 @@ $usuarioController = new UsuarioController($pdo);
 <head>
     <meta charset="UTF-8">
     <title>Login e Cadastro</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylelogin.css">
 </head>
 
 <body>
     
 <h1 class="mensagem">
-    Seja Bem-Vindo à Copa do Mundo 2026! Faça seu login ou cadastre-se para acessar conteúdos exclusivos, acompanhar os jogos e participar da emoção do torneio. Entre agora e viva a experiência completa da Copa do Mundo!
+    Seja Bem-Vindo à Copa do Mundo 2026! Faça seu login ou cadastre-se para acessar conteúdos exclusivos, acompanhar os jogos e participar da emoção do torneio. Entre agora e viva a experiência completa!
 </h1>
 
     <div class="container">

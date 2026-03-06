@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* Fundo gradiente inspirado na imagem */
+    background-image: url(Gemini_Generated_Image_95nq9u95nq9u95nq.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Mensagem de boas vindas no topo (fora do card) */
+.mensagem {
+    max-width: 800px;
+    text-align: center;
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 30px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* Container Principal */
+.container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    width: 900px;
+    max-width: 100%;
+    min-height: 550px;
+    display: flex;
+    flex-direction: row;
+}
+
+section {
+    width: 100%;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ==================================
+   Lado Esquerdo: Login (Branco)
+   ================================== */
+.login {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.login h2 {
+    color: #000000;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Escondendo as labels para ficar mais parecido com a imagem, 
+   usaremos os placeholders visuais (ou deixamos as labels discretas) */
+.login label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.login input {
+    background-color: #f3f4f6;
+    border: none;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    width: 100%;
+    font-family: inherit;
+    outline: none;
+}
+
+.login button {
+    border-radius: 8px;
+    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in;
+    align-self: center;
+}
+
+.login button:active {
+    transform: scale(0.95);
+}
+
+/* ==================================
+   Lado Direito: Cadastro (Roxo)
+   ================================== */
+.cadastro {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(59, 59, 59); /* Cor roxa da imagem */
+    color: #ffffff;
+    /* Fazendo a curva característica da imagem */
+    border-top-left-radius: 120px;
+    border-bottom-left-radius: 15px;
+}
+
+.cadastro form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.cadastro label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #ffffff;
+    margin-top: 8px;
+}
+
+/* Inputs transparentes no lado roxo */
+.cadastro input, 
+.cadastro select {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    width: 100%;
+    font-family: inherit;
+    outline: none;
+}
+
+.cadastro input::placeholder {
+    color: #999999;
+}
+
+/* Estilo para as opções do select não sumirem no fundo roxo */
+.cadastro select option {
+    color: #333;
+    background: #fff;
+}
+
+.cadastro button {
+    border-radius: 8px;
+    border: 1px solid #ffffff;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in, background-color 0.3s;
+    align-self: center;
+}
+
+.cadastro button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.cadastro button:active {
+    transform: scale(0.95);
+}
+
+/* ==================================
+   Responsividade para Celulares
+   ================================== */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .cadastro {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        padding-top: 50px;
+    }
+}

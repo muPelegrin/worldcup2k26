@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         echo "<script>
                 alert('Usuário cadastrado com sucesso! Faça seu login.'); 
-                window.location.href = 'cadastro.php';
+                window.location.href = 'index.php';
               </script>";
         exit;
     } elseif ($acao == 'login') {

@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     try {
         $stmt->execute([$usuario, $idade, $selecao, $cargo, $senha, $id]);
-        echo "<script>alert('Dados atualizados com sucesso!'); window.location.href='admin.php';</script>";
+        echo "<script>alert('Dados atualizados com sucesso!'); window.location.href='cadastro.php';</script>";
         exit;
     } catch (PDOException $e) {
         echo "<script>alert('Erro ao atualizar: " . addslashes($e->getMessage()) . "');</script>";
@@ -57,7 +57,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $u = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$u) {
-        echo "<script>alert('Registro não encontrado!'); window.location.href='admin.php';</script>";
+        echo "<script>alert('Registro não encontrado!'); window.location.href='cadastro.php';</script>";
         exit;
     }
 } else {
@@ -112,7 +112,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
             <button type="submit" class="btn-salvar">Atualizar Dados</button>
         </form>
-        <a href="admin.php" class="btn-voltar">Voltar ao Painel</a>
+        <a href="cadastro.php" class="btn-voltar">Voltar ao Painel</a>
     </div>
 
 </body>

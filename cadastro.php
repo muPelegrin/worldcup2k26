@@ -128,7 +128,19 @@ $jogoController = new JogoController($pdo);
                     
                     $id = htmlspecialchars($linha['id']);
                     echo "<td>";
-                    echo "<a href='editar.php?tabela=$tabela&id=$id' class='btn btn-edit'>Editar</a>";
+                    $editUrl = 'editar.php?tabela=' . urlencode($tabela) . '&id=' . $id;
+                    if ($tabela === 'classificacao') {
+                        $editUrl = 'editar_classificacao.php?id=' . $id;
+                    } elseif ($tabela === 'grupo') {
+                        $editUrl = 'editar_grupo.php?id=' . $id;
+                    } elseif ($tabela === 'jogo') {
+                        $editUrl = 'editar_jogo.php?id=' . $id;
+                    } elseif ($tabela === 'resultado') {
+                        $editUrl = 'editar_resultado.php?id=' . $id;
+                    } elseif ($tabela === 'selecao') {
+                        $editUrl = 'editar_selecao.php?id=' . $id;
+                    }
+                    echo "<a href='$editUrl' class='btn btn-edit'>Editar</a>";
                     echo "<a href='excluir.php?tabela=$tabela&id=$id' class='btn btn-delete' onclick='return confirm(\"Tem certeza que deseja excluir o registro #$id da tabela $tabela?\");'>Excluir</a>";
                     echo "</td>";
                     

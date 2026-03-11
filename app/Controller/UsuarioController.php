@@ -60,7 +60,7 @@ class UsuarioController
             header("Location: painel_usuario.php");
             exit;
         } else {
-            echo "<script>alert('Usuário ou senha incorretos!'); window.location.href = 'cadastro.php';</script>";
+            echo "<script>alert('Usuário ou senha incorretos!'); window.location.href = 'index.php';</script>";
             exit;
         }
     }
